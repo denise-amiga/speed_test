@@ -1,0 +1,69 @@
+Strict
+
+Import cerberus
+Import mojo
+
+Global amount:Int = 8000
+
+Global boxes:_Box[amount]
+
+Class _Box
+	Field x:Float
+	Field y:Float
+	Field vx:Float
+	Field vy:Float
+	Field s:Int
+	
+	Method Update:Int()
+		x = x + (vx*(55-s)/100)
+		If x>800-s Or x<0 vx=-vx
+		y = y + (vy*(55-s)/100)
+		If y>600-s Or y<0 vy=-vy
+		Return 0
+	End
+	
+	Method Draw:Int()
+		SetColor(4*s,4*s,4*s)
+		DrawRect	(x,y,s,s)
+		Return 0
+	End
+End
+'-----------------------------------------------------------------
+Class myClass Extends App
+	'-----------------------------------------------------------------
+	Method OnCreate:Int()
+		SetUpdateRate 60
+		For Local i:Int = 0 To amount
+			Local n:_Box = New _Box
+			n.x = Rnd(750)
+			n.y = Rnd(550)
+			n.vx = Rnd(1,10)
+			n.vy = Rnd(1,10)
+			n.s = Rnd(1,50)
+			boxes[i] = n
+		Next
+		Print(amount)
+		Return 0
+	End
+	'-----------------------------------------------------------------
+	Method OnUpdate:Int()
+		For Local n:_Box = Eachin boxes
+			n.Update()
+		Next
+		Return 0
+	End
+	'-----------------------------------------------------------------
+	Method OnRender:Int()
+		' here you render your app
+		Cls 0,0,0
+		For Local n:_Box = Eachin boxes
+			n.Draw()
+		Next
+		Return 0
+	End
+End
+'-----------------------------------------------------------------
+Function Main:Int()
+	New myClass
+	Return 0
+End
