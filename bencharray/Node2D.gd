@@ -70,11 +70,11 @@ func read_a1(times=200):
 	var t1 = OS.get_ticks_usec()
 	for i in times:
 		var z = 0
-		z += ar1[0*20+0]
-		z += ar1[1*20+1]
-		z += ar1[2*20+2]
-		z += ar1[3*20+3]
-		z += ar1[4*20+4]
+		z += ar1[0*30+0]
+		z += ar1[1*30+1]
+		z += ar1[2*30+2]
+		z += ar1[3*30+3]
+		z += ar1[4*30+4]
 	return OS.get_ticks_usec()-t1
 
 func read_a2(times=200):
