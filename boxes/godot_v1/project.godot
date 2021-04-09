@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="myspeedtest"
+config/name="boxes_v1"
 run/main_scene="res://Node2D.tscn"
 config/icon="res://icon.png"
 
@@ -25,5 +25,6 @@ window/size/width=800
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

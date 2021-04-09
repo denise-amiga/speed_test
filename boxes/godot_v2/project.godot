@@ -20,9 +20,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="newbench"
+config/name="boxes_v2"
 run/main_scene="res://Node2D.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=800
 
 [rendering]
 

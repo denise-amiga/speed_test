@@ -1,6 +1,6 @@
 extends Node2D
 
-export var amount = 4500
+export var amount = 6500
 var boxes = []
 
 func _ready() -> void:
